@@ -1,16 +1,16 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
-module.exports = function(sequelize) {
-  const Room = sequelize.define('Room', {
+module.exports = (sequelize) => {
+  sequelize.define("Room", {
+    // Existing attributes
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    capacity: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
+    // New attribute
+    isBooked: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
-
-  return Room;
 };
