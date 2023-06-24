@@ -4,26 +4,26 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Rooms', {
       id: {
-        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      capacity: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      isBooked: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
