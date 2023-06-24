@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room Booking App</title>
+</head>
+<body>
+  <h1>Welcome to the Room Booking App</h1>
+  <% if (user) { %>
+    <p>Welcome, <%= user.firstName %>!</p>
+    <% if (user.isAdmin) { %>
+      <p>You are logged in as an admin.</p>
+    <% } else { %>
+      <p>You are logged in as a staff member.</p>
+    <% } %>
+    <a href="/logout">Logout</a>
+  <% } else { %>
+    <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a></p>
+  <% } %>
+</body>
+</html>
 
