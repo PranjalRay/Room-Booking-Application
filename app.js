@@ -7,7 +7,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const { User, Room, Booking } = require("./models");
+const { User, Room, Booking, BookingRequest } = require("./models");
 
 // Configure middleware
 app.set("view engine", "ejs");
