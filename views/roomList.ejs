@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room List</title>
+</head>
+<body>
+  <h1>Room List</h1>
+  <% if (rooms.length > 0) { %>
+    <ul>
+      <% rooms.forEach(room => { %>
+        <li>
+          <%= room.name %>
+          <% if (room.isBooked) { %>
+            <span class="booked">Booked</span>
+          <% } else { %>
+            <span class="available">Available</span>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No rooms available.</p>
+  <% } %>
+</body>
+</html>
