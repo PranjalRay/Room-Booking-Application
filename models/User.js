@@ -1,29 +1,25 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
-module.exports = function(sequelize) {
-  const User = sequelize.define('User', {
+module.exports = (sequelize) => {
+  sequelize.define("User", {
+    // Existing attributes
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
+    // New attributes
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
-    role: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
   });
-
-  return User;
 };
