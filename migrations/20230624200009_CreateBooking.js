@@ -4,28 +4,22 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Bookings', {
       id: {
-        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
-      startTime: {
-        type: Sequelize.DATE,
-        allowNull: false
+      roomId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Rooms',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      endTime: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      UserId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -35,15 +29,25 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      RoomId: {
+      date: {
+        type: Sequelize.DATEONLY,
+        allowNull: false
+      },
+      reason: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      members: {
         type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      createdAt: {
         allowNull: false,
-        references: {
-          model: 'Rooms',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
